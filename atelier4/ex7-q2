@@ -1,0 +1,24 @@
+def insertion_sort(list_to_sort):
+    # Créez une copie de la liste pour ne pas la modifier.
+    sorted_list = list_to_sort.copy()
+    
+    # Parcourez la liste à partir du deuxième élément (index 1).
+    for i in range(1, len(sorted_list)):
+        x = sorted_list[i]  # Mémorise l'élément actuel.
+        j = i
+        
+        # Décale vers la droite les éléments triés plus grands que x.
+        while j > 0 and sorted_list[j - 1] > x:
+            sorted_list[j] = sorted_list[j - 1]
+            j -= 1
+        
+        # Placez x dans le "trou" laissé par le décalage.
+        sorted_list[j] = x
+    
+    return sorted_list
+
+my_lst_to_sort = [170, 45, 75, 90, 2, 24, 802, 66]
+sorted_lst = insertion_sort(my_lst_to_sort)
+
+print('La liste avant tri :', my_lst_to_sort)
+print('Le tri par insertion donne :', sorted_lst)
